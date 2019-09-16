@@ -56,4 +56,3 @@ let init = function() {
 //DOM is ready and has all it's nodes loaded
 //console.log("adding init");
 window.addEventListener("load", init);
-init();
