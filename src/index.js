@@ -23,6 +23,8 @@ let onclick = function() {
   this.disabled = true;
 };
 
+//Testing
+
 //this gets called by the 'load' event listener
 let init = function() {
   console.log("init");
