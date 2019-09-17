@@ -6,12 +6,33 @@
 //to do an ID lookup right now, so assign it in init
 let rootNode;
 
+//let winner = false;
+
 //our array of button dom elements
 let buttonNodes = [
   [], //row 0
   [], //row 1
   [] //row 2
 ];
+
+// const onclick = function() {
+//set X in this.innerHTML
+//disable this
+//check win states [end the game if true]
+//horizontal
+//vertical
+//both diags
+//cat game
+//call aiMove
+//check win states again
+// };
+
+// const checkWinStates = () =>{
+//   if(game over){
+//     winner - "X";
+//     rerun true;
+//   }
+// }
 
 let onclick = function() {
   console.log(this);
@@ -21,6 +42,20 @@ let onclick = function() {
   this.innerHTML = "X";
   this.owned = "X";
   this.disabled = true;
+};
+
+let aiMove = () => {
+  const availSpaces = [];
+  for (let i = 0; i < 3; i++) {
+    for (let j = 0; j < 3; j++) {
+      if (
+        buttonNodes[i][j].innerHTML !== "X" &&
+        buttonNodes[i][j].innerHTML !== "O"
+      ) {
+        availSpaces.push(buttonNodes[i][j]);
+      }
+    }
+  }
 };
 
 //this gets called by the 'load' event listener
@@ -48,11 +83,12 @@ let init = function() {
   //create and add the "AI Go First" button
 
   //create a reload button here if you want?
-  let reload = document.createElement("button");
-  reload.onclick = window.location.reload();
+  //let reload = document.createElement("button");
+  //reload.onclick = window.location.reload();
 };
 
 //called once page is laded,
 //DOM is ready and has all it's nodes loaded
 //console.log("adding init");
-window.addEventListener("load", init);
+window.addEventListener("load", init());
+//init();
